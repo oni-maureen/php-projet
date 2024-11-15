@@ -6,7 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    
+<form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form><form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form><form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form><form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form><form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form><form method="POST" action="connexion.php">
+        <label for="nom">Nom :</label>
+        <input type="text" id="id" name="nom" required><br>
+        <button type="submit">Se connecter</button>
+    </form>
 </body>
 </html>
 
