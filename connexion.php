@@ -26,7 +26,6 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer le nom saisi
     $nomSaisi = htmlspecialchars($_POST['nom']);
-    setcookie('login', $_POST['nom'], );
 
     // Lire le contenu du fichier JSON
     $jsonData = file_get_contents('login.json');
@@ -44,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($authentifie) {
         session_start();
+        $_SESSION['login'] = $nomSaisi;
         header("Location: idees.php");
     } else {
         echo "<p style='color: red;'>Nom incorrect. Veuillez réessayer.</p>";
