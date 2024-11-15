@@ -27,8 +27,8 @@ if (!isset($_SESSION['login'])) {
             </ul>
         </div>
     </nav>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
+    <div class="container mt-4 ">
+        <div class="grid row justify-content-center row-gap-3">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="card">
                     <div class="card-header">
