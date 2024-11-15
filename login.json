@@ -1,18 +1,18 @@
 [
-    {
-        "id": 1,
-        "nom": "Ines"
-    },
-    {
-        "id": 2,
-        "nom": "Thomas"
-    },
-    {
-        "id": 3,
-        "nom": "Maureen"
-    },
-    {
-        "id": 3,
-        "nom": "Amin"
-    }
+  {
+    "id": 1,
+    "nom": "Inès"
+  },
+  {
+    "id": 2,
+    "nom": "Thomas"
+  },
+  {
+    "id": 3,
+    "nom": "Maureen"
+  },
+  {
+    "id": 3,
+    "nom": "Amin"
+  }
 ]
