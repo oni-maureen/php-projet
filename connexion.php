@@ -9,3 +9,12 @@
     
 </body>
 </html>
+
+<?php
+// Etape:
+// Crée champ de connection: login
+// Verifier avec le tableau des autorisé si le login est valide.
+// Si valide: Crée une Session puis rediriger vers la page idées.
+// Si erreur: Afficher que l'utilisateur n'est pas accepté. 
+// Doit verifier que l'utilisateur a bien une session lorsqu'il est sur les autres page, si non: redirige ici.
+?>
