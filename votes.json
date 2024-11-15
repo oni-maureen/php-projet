@@ -1,0 +1,42 @@
+{
+    "1": {
+        "id_idee": "67374b4445922",
+        "user": "Maureen",
+        "type_vote": "positif"
+    },
+    "2": {
+        "id_idee": "67374b866932c",
+        "user": "Thomas",
+        "type_vote": "positif"
+    },
+    "3": {
+        "id_idee": "67374b4445922",
+        "user": "Thomas",
+        "type_vote": "negatif"
+    },
+    "8": {
+        "id_idee": "67374ba10a6fc",
+        "user": "Thomas",
+        "type_vote": "positif"
+    },
+    "13": {
+        "id_idee": "67374b866932c",
+        "user": "Amin",
+        "type_vote": "positif"
+    },
+    "15": {
+        "id_idee": "67374ba10a6fc",
+        "user": "Amin",
+        "type_vote": "negatif"
+    },
+    "16": {
+        "id_idee": "67377123e40da",
+        "user": "Amin",
+        "type_vote": "positif"
+    },
+    "33": {
+        "id_idee": "67374b4445922",
+        "user": "Amin",
+        "type_vote": "positif"
+    }
+}

@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if (!isset($_SESSION['login'])) {
+    header("Location: connexion.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +60,6 @@
 // Soumettre le formulaire en POST 
 // Ajouter l'idée dans le JSON.
 // Bouton Deconnection, Retour vers idées.
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titre = htmlspecialchars($_POST['titre']);
     $description = htmlspecialchars($_POST['description']);
@@ -78,6 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data[] = $nouvelleIdee;
     $jsonMisAJour = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     file_put_contents($fichierJson, $jsonMisAJour);
-
+    
+    header("Location: ./idees.php");
+    exit();
 }
 ?>
