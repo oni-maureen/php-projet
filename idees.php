@@ -15,6 +15,13 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 die('Erreur : JSON invalide - ' . json_last_error_msg());
 }
 
+ // Range les données du plus récent au plus ancien.
+usort($lesIdees, function ($a, $b) {
+    $dateA = DateTime::createFromFormat('d/m/Y', $a['dateDeCreation']);
+    $dateB = DateTime::createFromFormat('d/m/Y', $b['dateDeCreation']);
+    return $dateB->getTimestamp() - $dateA->getTimestamp();
+});
+
 $recupVotes = file_get_contents('votes.json');
 if ($recupVotes === false) {
    die('Erreur : Impossible de lire le fichier votes.json');
@@ -79,14 +86,20 @@ if(isset($_POST["dislike"])){
        <div class="container mt-4 mb-5">
            <div class="row g-4">
                <?php foreach ($lesIdees as $idee): 
+                   $dejaVotez = false;
+                   $typeVote = "positif";
                    $like = 0;
                    $dislike = 0;
                    foreach($lesVotes as $vote){
                        if($vote['id_idee'] == $idee['id_idee']){
-                           if($vote['type_vote'] == "positif"){
+                           if($vote['type_vote'] == $typeVote){
                                $like = $like + 1;
                            } else {
                                $dislike = $dislike + 1;
+                               $typeVote = "negatif";
+                           }
+                           if($vote['user'] == $_SESSION['login']){
+                                $dejaVotez = true;
                            }
                        }
                    }
@@ -99,8 +112,8 @@ if(isset($_POST["dislike"])){
                                <p class="card-text"><?= htmlspecialchars($idee['auteur'] ?? 'Auteur inconnu') ?>, le <?= htmlspecialchars($idee['dateDeCreation'] ?? 'Date non disponible') ?></p>
                                <form action='' method='POST'>
                                    <input name="idIdee" type="hidden" value="<?= $idee['id_idee'] ?>"/>
-                                   <input name="dislike" type="submit" class="btn btn-outline-danger btn-sm" value="Dislike <?= htmlspecialchars($dislike ?? '0') ?>"/>
-                                   <input name="like" type="submit" class="btn btn-outline-success btn-sm" value="Like <?= htmlspecialchars($like ?? '0') ?>"/>
+                                   <input name="dislike" type="submit" class="btn <?php if($dejaVotez && $typeVote == "negatif") { echo 'btn-danger'; } else { echo 'btn-outline-danger'; }?> btn-sm" value="Dislike <?= htmlspecialchars($dislike ?? '0') ?>"/>
+                                   <input name="like" type="submit" class="btn <?php if($dejaVotez && $typeVote == "positif") { echo 'btn-success'; } else { echo 'btn-outline-success'; }?> btn-sm" value="Like <?= htmlspecialchars($like ?? '0') ?>"/>
                                </form>
                            </div>
                        </div>
@@ -110,13 +123,3 @@ if(isset($_POST["dislike"])){
        </div>
    </body>
 </html>
-<?php
-// Etape:
-// Recupèrer les idées dans le JSON des idées.
-// Les afficher comme des cartes, dans l'ordre antchronologique.
-// Récupèrer les votes et afficher le nombres pour chaques idées.
-// Mettre en avant les votes deja fait de l'utilisateur. 
-// Ajouter un votes positif ou negatif.
-// Remplacé si déjà voter.
-// Bouton Deconnection + Ajouter Idées
-?>

@@ -55,11 +55,6 @@ if (!isset($_SESSION['login'])) {
 </html>
 
 <?php
-// Etape:
-// Crée un mini formulaire avec champ texte pour : titre, description. récupéré la date de creation et l'auteur.
-// Soumettre le formulaire en POST 
-// Ajouter l'idée dans le JSON.
-// Bouton Deconnection, Retour vers idées.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titre = htmlspecialchars($_POST['titre']);
     $description = htmlspecialchars($_POST['description']);
@@ -71,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $contenu = file_get_contents($fichierJson);
         $data = json_decode($contenu, true); 
     } else {
-        $data = []; // Si le fichier n'existe pas, on initialise un tableau vide
+        $data = [];
     }
 
     $nouvelleIdee = [

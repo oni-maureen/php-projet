@@ -17,24 +17,17 @@
 </html>
 
 <?php
-// Etape:
-// Crée champ de connection: login
-// Verifier avec le tableau des autorisé si le login est valide.
-// Si valide: Crée une Session puis rediriger vers la page idées.
-// Si erreur: Afficher que l'utilisateur n'est pas accepté. 
-// Doit verifier que l'utilisateur a bien une session lorsqu'il est sur les autres page, si non: redirige ici
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer le nom saisi
     $nomSaisi = htmlspecialchars($_POST['nom']);
 
     // Lire le contenu du fichier JSON
     $jsonData = file_get_contents('login.json');
-    $utilisateurs = json_decode($jsonData, true); // Convertir le JSON en tableau PHP
+    $utilisateurs = json_decode($jsonData, true); 
 
     // Vérifier si le nom saisi est dans la liste
     $authentifie = false;
     foreach ($utilisateurs as $utilisateur) {
-        if (strcasecmp($utilisateur['nom'], $nomSaisi) === 0) { // Comparaison insensible à la casse
+        if (strcasecmp($utilisateur['nom'], $nomSaisi) === 0) {
             $authentifie = true;
             break;
         }
